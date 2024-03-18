@@ -27,7 +27,7 @@ runParallel setAlphaField -dict system/setAlphaFieldDict.init
 runParallel $(getApplication)
 
 #Initialising the velocity field to a certain value within the droplet
-runParallel setAlphaField_TimeSelect -dict system/setAlphaFieldDict.init -latestTime
+runParallel setAlphaField_TimeSelect -dict system/setAlphaFieldDict -latestTime
 runParallel setFields_TimeSelect -latestTime
 
 cp system/controlDict.run system/controlDict

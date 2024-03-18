@@ -19,19 +19,16 @@ parm1File="modelParms"
 parm1Name=dropRadius
 parm1ShortName=R
 parm1Range=($(tail +2 testMatrix | cut -d' ' -f1))
-#echo $parm1Range
-
-for m in ${!parm1Range[*]}
-do
-    parm1=${parm1Range[$m]}
-    echo $parm1
-done
 
 parm2File="constant/transportProperties"
 parm2Name=water.nu
 parm2ShortName=nu
 parm2Range=($(tail +2 testMatrix | cut -d' ' -f2))
-#echo $parm2Range
+
+parm3File="modelParms"
+parm3Name=dropVelocity
+parm3ShortName=V
+parm3Range=($(tail +2 testMatrix | cut -d' ' -f3))
 
 cd $scanDir
 
@@ -49,6 +46,7 @@ for m in ${!parm1Range[*]}
 do
     parm1=${parm1Range[$m]}
     parm2=${parm2Range[$m]}
+    parm3=${parm3Range[$m]}
     caseName=$parm1ShortName$parm1$parm2ShortName$parm2
     if [ "${1}" = "run" ];
     then
@@ -61,6 +59,7 @@ do
         foamDictionary -entry "${parm1Name}" -set "${parm1}" ${caseName}/${parm1File}
 #        sed -i "s/${parm1Name}\s*=.*/${parm1Name}=${parm1}/" ${caseName}/${parm1File}
         foamDictionary -entry "${parm2Name}" -set "${parm2}" ${caseName}/${parm2File}
+        foamDictionary -entry "${parm3Name}" -set "${parm3}" ${caseName}/${parm3File}
         echo "$caseName:    $parm1    $parm2" >> README
     else
         echo "Directory $caseName already exists - not recreated."
