@@ -1,0 +1,10 @@
+dropRadius     0.00175;
+dropHeight     0.01;
+surfaceHeight  0.000;
+dropVelocity   -7.0;
+
+dropVelocityRadius     0.003;
+
+//v = 7m/s dx = 0.2 m /20/2^4*0.35 = 0.0002
+//CFL = v*dt/dx => dt = CFL*dx/v
+//CFL = 0.5 => dt = 0.5*0.0002/7 = 1.4e-5

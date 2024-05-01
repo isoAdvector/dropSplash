@@ -1,0 +1,8 @@
+dropRadius    water.nu    dropVelocity
+modelParms    constant/transportProperties    modelParms
+1.750e-03 1.52066e-06 -8.4240
+1.875e-03 1.52066e-06 -8.6279
+2.000e-03 1.52066e-06 -8.7891
+2.125e-03 1.52066e-06 -8.8973
+2.250e-03 1.52066e-06 -8.9591
+1.750e-03 0           -8.4240
